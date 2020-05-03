@@ -10,7 +10,7 @@ pub struct Document {
 }
 
 fn default_openapi() -> String {
-    "3.0".to_owned()
+    "3.0.0".to_owned()
 }
 
 
@@ -53,7 +53,7 @@ mod test {
         };
 
         let o = Document {
-            openapi: "3.0".to_owned(),
+            openapi: "3.0.0".to_owned(),
             info: i,
             servers: vec![s]
         };
@@ -63,7 +63,7 @@ mod test {
         let ol = oi.license.unwrap();
         let os = o.servers;
 
-        assert_eq!("3.0", o.openapi);
+        assert_eq!("3.0.0", o.openapi);
         assert_eq!("foobar-api", oi.title);
         assert_eq!("foobar", oi.description.unwrap());
         assert_eq!("https://foo.bar/terms", oi.terms_of_service.unwrap());
@@ -82,7 +82,7 @@ mod test {
 
     #[test]
     fn test_document_yaml() {
-        let raw = "openapi: 3.0
+        let raw = "openapi: 3.0.0
 info:
   title: foobar-api
   description: foobar
@@ -109,7 +109,7 @@ servers:
         let ol = oi.license.unwrap();
         let os = o.servers;
 
-        assert_eq!("3.0", o.openapi);
+        assert_eq!("3.0.0", o.openapi);
         assert_eq!("foobar-api", oi.title);
         assert_eq!("foobar", oi.description.unwrap());
         assert_eq!("https://foo.bar/terms", oi.terms_of_service.unwrap());
@@ -129,7 +129,7 @@ servers:
     #[test]
     fn test_document_json() {
         let raw = "{
-   \"openapi\": \"3.0\",
+   \"openapi\": \"3.0.0\",
    \"info\": {
       \"title\": \"foobar-api\",
       \"description\": \"foobar\",
@@ -168,7 +168,7 @@ servers:
         let ol = oi.license.unwrap();
         let os = o.servers;
 
-        assert_eq!("3.0", o.openapi);
+        assert_eq!("3.0.0", o.openapi);
         assert_eq!("foobar-api", oi.title);
         assert_eq!("foobar", oi.description.unwrap());
         assert_eq!("https://foo.bar/terms", oi.terms_of_service.unwrap());
