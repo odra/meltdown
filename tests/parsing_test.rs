@@ -1,5 +1,5 @@
 use std::fs;
-use meltdown::api::document::Document;
+use lib::api::document::Document;
 
 #[test]
 fn it_parses() {
