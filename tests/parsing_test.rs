@@ -1,5 +1,5 @@
 use std::fs;
-use lib::api::document::Document;
+use lib::api::meta::document::Document;
 
 #[test]
 fn it_parses() {
