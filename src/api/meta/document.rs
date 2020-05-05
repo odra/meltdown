@@ -1,11 +1,11 @@
 use serde::{Serialize, Deserialize};
-use super::{servers, meta};
+use super::{servers, info};
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct Document {
     #[serde(default = "default_openapi")]
     pub openapi: String,
-    pub info: meta::info::Info,
+    pub info: info::Info,
     pub servers: Vec<servers::Server>
 }
 
@@ -17,7 +17,7 @@ fn default_openapi() -> String {
 #[cfg(test)]
 mod test {
     use super::*;
-    use crate::api::{meta, servers};
+    use crate::api::meta;
     use std::collections::HashMap;
 
     #[test]
